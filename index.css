@@ -1,0 +1,85 @@
+/* default grid set up --> mobile first */
+body {
+  display: grid;
+  min-height: 100vh;
+  min-width: 100%;
+  grid-template-rows: 1fr 90px;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    'content'
+    'footer';
+}
+
+.main {
+  background-color: #2c3350;
+  grid-area: content;
+}
+
+.footer {
+  background-color: #c0392b;
+  grid-area: footer;
+}
+
+.aside {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: #7f8c8d;
+  grid-area: sidebar;
+}
+
+.aside i {
+  display: none;
+}
+
+/* larger screen */
+@media only screen and (min-width: 600px) {
+  body {
+    grid-template-columns: 40px 1fr;
+    grid-template-areas:
+      'sidebar content'
+      'footer footer';
+  }
+
+  /* show the icons */
+  .aside {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .aside i {
+    display: block;
+  }
+}
+
+.main_header > .img {
+  grid-area: img;
+}
+
+.main_header > .details {
+  grid-area: dtls;
+}
+
+.main_header {
+  display: grid;
+  grid-template-areas:
+    'img'
+    'dtls';
+}
+
+@media screen and (max-width: 600px) {
+  .main_header {
+    justify-items: center;
+  }
+
+  .main_header > .details {
+    text-align: center;
+  }
+
+  .sm--hide {
+    display: none;
+  }
+
+  .img > img {
+    width: 150px;
+  }
+}
